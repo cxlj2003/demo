@@ -1,0 +1,43 @@
+version : "3.9"
+services:
+  db:
+   image: mariadb:10.1
+   container_name: seafile-db
+   hostname: seafile-db
+   environment:
+    - MYSQL_ROOT_PASSWORD=P@SsW0rD!#!$*
+    - MYSQL_LOG_CONSOLE=true
+   volumes:
+   #配置数据库目录和备份目录
+    - /opt/seafile/7/db:/var/lib/mysql
+    - /opt/seafile/7/dbbackup:/dbbackup
+   restart: always
+  memcached:
+   image: memcached:1.5.6
+   container_name: seafile-memcached
+   hostname: seafile-memcached
+   entrypoint: memcached -m 256
+   restart: always
+  app:
+   image: seafileltd/seafile-mc
+   container_name: seafile-app
+   hostname: seafile-app
+   ports:
+    - "60080:80"
+   volumes:
+   #配置应用目录和备份目录
+    - /opt/seafile/7/app:/shared
+    - /opt/seafile/7/appbackup:/backup
+   environment:
+    - DB_HOST=db
+    - DB_ROOT_PASSWD=P@SsW0rD!#!$*
+    - TIME_ZONE=Asia/Shanghai
+    - SEAFILE_ADMIN_EMAIL=demo@qq.com
+    #管理员邮箱，也是web登陆的用户名
+    - SEAFILE_ADMIN_PASSWORD=P@SsW0rD!#!$*
+    #管理员密码
+    - SEAFILE_SERVER_LETSENCRYPT=false
+   depends_on:
+    - db
+    - memcached
+   restart: always

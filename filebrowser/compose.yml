@@ -1,0 +1,19 @@
+version: '3.9'
+services:
+   app:
+     image: docker.io/filebrowser/filebrowser:latest
+     container_name: filebrowser
+     hostname: filebrowser
+     volumes:
+       #挂载文件服务器的根目录和配置文件
+       - /opt/filebrowser/root:/srv
+       - /opt/filebrowser/filebrowser.db:/database.db       
+       - /opt/filebrowser/.filebrowser.json:/.filebrowser.json
+     ports:
+       - "60180:80"
+     privileged: true
+     environment:
+       - "UID:0"
+       - "GID:0"
+       - "GIDLIST:0"
+     restart: always

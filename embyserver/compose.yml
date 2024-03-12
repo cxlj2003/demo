@@ -5,9 +5,10 @@ services:
      container_name: embyserver
      hostname: embyserver
      volumes:
+       #挂载媒体库目录
        - /opt/embyserver/movie:/library/movie
        - /opt/embyserver/tv:/library/tv
-       - /opt/embyserver/music:/library/
+       - /opt/embyserver/music:/library/music
        - /opt/embyserver/config:/config
      ports:
        - "8096:8096"

@@ -1,0 +1,64 @@
+version : "3.9"
+services:
+  db:
+   image: mariadb:10.1
+   container_name: seafile-db
+   hostname: seafile-db
+   environment:
+    - MYSQL_ROOT_PASSWORD=CXlj2003*
+     # Requested, set the root's password of MySQL service.
+    - MYSQL_LOG_CONSOLE=true
+   volumes:
+    - /root/data/seafile/7/db:/var/lib/mysql
+    - /root/backup/db/seafile-db:/dbbackup
+      # Requested, specifies the path to MySQL data persistent store.
+   restart: always
+   networks:
+     network:
+       ipv4_address: 198.198.0.11
+       # ipv6_address: fcff:198:198::11
+  memcached:
+   image: memcached:1.5.6
+   container_name: seafile-memcached
+   hostname: seafile-memcached
+   entrypoint: memcached -m 256
+   restart: always
+   networks:
+     network:
+       ipv4_address: 198.198.0.12
+       #ipv6_address: fcff:198:198::12
+  app:
+   image: seafileltd/seafile-mc
+   container_name: seafile-app
+   hostname: seafile-app
+   ports:
+    - "60080:80"
+    # - 443:443
+   volumes:
+    - /root/data/seafile/7/app:/shared
+    - /root/backup/data/seafile-app:/backup
+   environment:
+    - DB_HOST=db
+    - DB_ROOT_PASSWD=CXlj2003*
+    - TIME_ZONE=Asia/Shanghai
+    - SEAFILE_ADMIN_EMAIL=chuxiaojun2003@qq.com
+    - SEAFILE_ADMIN_PASSWORD=CXlj2003*
+    - SEAFILE_SERVER_LETSENCRYPT=false
+    #command: ["/opt/seafile/seafile-server-7.0.5/seaf-fuse.sh","start","-f","/data"]
+    #- SEAFILE_SERVER_HOSTNAME=www.chuxiaojun.cn
+   depends_on:
+    - db
+    - memcached
+   restart: always
+   networks:
+     network:
+       ipv4_address: 198.198.0.13
+       #ipv6_address: fcff:198:198::13
+networks:
+  network:
+          #enable_ipv6: true
+    ipam:
+      driver: default
+      config:
+        - subnet: "198.198.0.0/16"
+          # - subnet: "fcff:198:198::/64"

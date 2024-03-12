@@ -1,0 +1,25 @@
+version: '3.9'
+services:
+   app:
+     image: docker.io/tinymediamanager/tinymediamanager:latest
+     container_name: tmm
+     hostname: tmm
+     volumes:
+       #挂载媒体库目录
+       - /opt/embyserver/movie:/library/movie
+       - /opt/embyserver/tv:/library/tv
+       - /opt/embyserver/music:/library/music
+       #挂载配置目录
+       - /opt/tmm/config:/data
+       - /opt/tmm/addons:/app/addons
+       - /opt/tmm/resolv.conf:/etc/resolv.conf
+       - /opt/tmm/hosts:/etc/hosts
+     ports:
+       - "4000:4000"
+     environment:
+       - "UID:0"
+       - "GID:0"
+       - "GIDLIST:0"
+       - "TZ:Asia/Shanghai"
+     privileged: true
+     restart: always

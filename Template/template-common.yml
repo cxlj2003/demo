@@ -1,0 +1,18 @@
+version: '3.9'
+services:
+   app:
+     image: docker.io/filebrowser/filebrowser:latest
+     container_name: filebrowser
+     hostname: filebrowser
+     volumes:
+       - /root:/srv
+       - /opt/filebrowser/filebrowser.db:/database.db       
+       - /opt/filebrowser/.filebrowser.json:/.filebrowser.json
+     ports:
+       - "60180:80"
+     privileged: true
+     environment:
+       - "UID:0"
+       - "GID:0"
+       - "GIDLIST:0"
+     restart: always
