@@ -5,6 +5,6 @@ export DEBIAN_FRONTEND=noninteractive
 EOF
 source /etc/profile
 echo $DEBIAN_FRONTEND
-#2ssh运行Root登录
+#2ssh允许Root登录
 echo PermitRootLogin yes >> /etc/ssh/sshd_config
 systemctl restart sshd
