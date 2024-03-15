@@ -13,4 +13,8 @@ jobs:
           src: 'github/cxlj2003'
           dst: 'gitee/cxlj2003'
           dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
+<<<<<<< HEAD
           dst_token:  ${{ secrets.GITEE_TOKEN }}
+=======
+          dst_token:  ${{ secrets.GITEE_TOKEN }}
+>>>>>>> 5d93312f67b048822b6bde5727fd155f9e6c774b
