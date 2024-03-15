@@ -1,8 +1,8 @@
 - name: Mirror with force push (git push -f)
   uses: Yikun/hub-mirror-action@master
   with:
-    src: github/Yikun
-    dst: gitee/yikunkero
+    src: github/cxlj2003
+    dst: gitee/cxlj2003
     dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
     dst_token: ${{ secrets.GITEE_TOKEN }}
     force_update: true
