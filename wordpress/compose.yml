@@ -8,10 +8,10 @@ services:
        - /opt/wordpress/db:/var/lib/mysql
      restart: always
      environment:
-       MYSQL_ROOT_PASSWORD: P@SsW0rD!#!$*
+       MYSQL_ROOT_PASSWORD: P@SsW0rD!#!*
        MYSQL_DATABASE: mywp
        MYSQL_USER: mywp-user
-       MYSQL_PASSWORD: P@SsW0rD!#!$*
+       MYSQL_PASSWORD: P@SsW0rD!#!*
 
    app:
      depends_on:
@@ -27,5 +27,5 @@ services:
      environment:
        WORDPRESS_DB_HOST: db:3306
        WORDPRESS_DB_USER: mywp-user
-       WORDPRESS_DB_PASSWORD: P@SsW0rD!#!$*
+       WORDPRESS_DB_PASSWORD: P@SsW0rD!#!*
        WORDPRESS_DB_NAME: mywp
