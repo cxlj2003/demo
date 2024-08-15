@@ -1,6 +1,6 @@
 services:
   app:
-    image: 'docker.io/jc21/nginx-proxy-manager:latest'
+    image: 'registry.cn-hangzhou.aliyuncs.com/cxlj/nginx-proxy-manager:latest'
     restart: unless-stopped
     ports:
       - '80:80'
