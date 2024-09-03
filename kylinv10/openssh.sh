@@ -113,7 +113,7 @@ systemctl start sshd
 chmod 600 /etc/ssh/*_key
 cat << EOF >>/etc/ssh/sshd_config
 PermitRootLogin yes
-echo PasswordAuthentication yes
+PasswordAuthentication yes
 EOF
 systemctl restart sshd
 rm -rf /usr/local/src/*
