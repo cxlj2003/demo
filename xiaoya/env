@@ -1,0 +1,45 @@
+TZ=Asia/Shanghai
+# 阿里云盘token https://aliyuntoken.vercel.app/
+ALIYUN_TOKEN=ef792bbc7f874571b4c6d0b408eed77c
+# 阿里云盘open token https://alist.nn.ci/tool/aliyundrive/request
+ALIYUN_OPEN_TOKEN=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI0ZTlmODEwMDJjNzY0ZGE0OGRjYTM5NWIxNDVkYTk5ZSIsImF1ZCI6Ijc2OTE3Y2NjY2Q0NDQxYzM5NDU3YTA0ZjYwODRmYjJmIiwiZXhwIjoxNzMzMzg3MDMxLCJpYXQiOjE3MjU2MTEwMzEsImp0aSI6Ijk3YzllMmE3OGE5ZTRjODY4NjQwZDQzOTFmYzQxMWY4In0.YeyXaYc-LTHyPr6Q0QUZMyai7_l_L-VUNfXRnZhSibNQ-yva3qoUBGaEBZK2wBuIkqRJEI4Sa0o0BBFj3onySQ
+# 阿里云盘文件夹ID
+ALIYUN_FOLDER_ID=66dab7e6345924ea64ac462abac0a71da5b7e03e
+# 夸克网盘的cookie
+QUARK_COOKIE=
+# 115网盘的cookie
+PAN115_COOKIE=
+# 自动更新小雅alist文件
+AUTO_UPDATE_ENABLED=true
+# 自动清理阿里云盘
+AUTO_CLEAR_ENABLED=true
+# 阿里云盘自动清理间隔，单位分钟，范围0-60分钟，默认10分钟
+AUTO_CLEAR_INTERVAL=
+# pikpak 账号，用来观看小雅中pikpak分享给你的资源，格式：`qqq@qq.com:aaadds`
+PIKPAK_USER=
+# 开启tvbox随机订阅地址，true/false，默认false
+TVBOX_SECURITY=
+# webdav用户名为dav，设置密码。默认用户密码：guest/guest_Api789
+WEBDAV_PASSWORD=
+
+# emby 地址，容器内部使用地址，一般不用改 默认密码：1234
+EMBY_ADDR=http://emby:6908
+# jellyfin 地址，容器内部使用地址，一般不用改
+JELLYFIN_ADDR=http://jellyfin:8096
+# alist 地址，容器内部使用地址，一般不用改
+ALIST_ADDR=http://alist:5678
+
+# 是否启用emby
+EMBY_ENABLED=true
+# 是否启用jellyfin
+JELLYFIN_ENABLED=false
+# 自动更新emby的配置，依赖EMBY_APIKEY
+AUTO_UPDATE_EMBY_CONFIG_ENABLED=true
+# 自动更新emby配置，config.mp4间隔，单位天，默认7天
+AUTO_UPDATE_EMBY_INTERVAL=
+# 自动更新emby元数据
+AUTO_UPDATE_EMBY_METADATA_ENABLED=true
+# emby的apikey
+EMBY_APIKEY=
+# 下载解压完是否清除源文件，true/false，默认false
+CLEAR_TEMP=
