@@ -9,7 +9,7 @@ qemu-img convert istoreos-22.03.7-2024080210-x86-64-squashfs-combined-efi.img -O
 qemu-img convert istoreos-22.03.7-2024080210-x86-64-squashfs-combined-efi.img -O vmdk  istoreos-22.03.7-2024080210-x86-64-squashfs-combined-efi.vmdk
 
 #新建vmware，1个桥接网卡
-#http://ip 默认密码password 系统→管理权→路由器密码
+#http://ip  root用户默认密码password 系统→管理权→路由器密码
 #下载安装passwall插件
 #https://github.com/AUK9527/Are-u-ok
 
