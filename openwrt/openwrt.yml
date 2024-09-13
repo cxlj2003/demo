@@ -1,0 +1,20 @@
+version: '3.9'
+services:
+    openwrt:
+        command: "/sbin/init"
+        image: registry.cn-shanghai.aliyuncs.com/suling/openwrt:x86_64
+        privileged: true
+        networks:
+            openwrt: 
+              ipv4_address: 198.19.255.250
+        container_name: openwrt
+        restart: always
+networks:
+  openwrt:
+    driver: macvlan
+    driver_opts:
+      parent: enp2s0
+    ipam:
+      config:
+        - subnet: "198.19.255.0/24"
+          gateway: "198.19.255.254"
