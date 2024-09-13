@@ -1,5 +1,5 @@
 #!/bin/bash
-cat >/etc/networkd-dispatcher/routable.d/macvlan-interfaces.sh<<EOF
+cat <<EOF>/etc/networkd-dispatcher/routable.d/macvlan-interfaces.sh
 #! /bin/bash
 ip link add vdsm-shim link ens32 type macvlan mode bridge
 EOF
