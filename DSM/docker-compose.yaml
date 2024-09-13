@@ -1,0 +1,21 @@
+services:
+  dsm:
+    container_name: dsm
+    image: registry.cn-hangzhou.aliyuncs.com/cxlj/virtual-dsm
+    environment:
+      RAM_SIZE: "4G"
+      CPU_CORES: "2"
+      DISK_SIZE: "16G"
+      DISK_FMT: "qcow2"
+    devices:
+      - /dev/kvm
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - 10000:5000
+      - 6690:6690
+      - 22022:22
+    volumes:
+      - ./dsm:/storage
+    stop_grace_period: 2m
+    restart: always

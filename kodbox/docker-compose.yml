@@ -1,0 +1,36 @@
+version: '3.5'
+
+services:
+  db:
+    image: mariadb:10.6
+    restart: always
+    command: --transaction-isolation=READ-COMMITTED --log-bin=binlog --binlog-format=ROW
+    volumes:
+      - "./db:/var/lib/mysql"       #./db是数据库持久化目录，可以修改
+      # - "./etc/mysql/conf.d:/etc/mysql/conf.d"       #增加自定义mysql配置
+    environment:
+      - MYSQL_ROOT_PASSWORD=
+      - MARIADB_AUTO_UPGRADE=1
+      - MARIADB_DISABLE_UPGRADE_BACKUP=1
+    env_file:
+      - db.env
+      
+  app:
+    image: kodcloud/kodbox
+    restart: always
+    ports:
+      - 80:80                       #左边80是使用端口，可以修改
+    volumes:
+      - "./site:/var/www/html"      #./site是站点目录位置，可以修改
+    environment:
+      - MYSQL_HOST=db
+      - REDIS_HOST=redis
+    env_file:
+      - db.env
+    depends_on:
+      - db
+      - redis
+
+  redis:
+    image: redis:alpine
+    restart: always

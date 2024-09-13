@@ -1,0 +1,31 @@
+services:
+  dsm:
+    container_name: dsm
+    image: registry.cn-hangzhou.aliyuncs.com/cxlj/virtual-dsm
+    environment:
+      RAM_SIZE: "4G"
+      CPU_CORES: "2"
+      DISK_SIZE: "16G"
+      #DISK_FMT: "qcow2"
+    devices:
+      - /dev/kvm
+    cap_add:
+      - NET_ADMIN
+    volumes:
+      - ./dsm:/storage
+    stop_grace_period: 2m
+    restart: always
+    networks:
+      vdsm:
+        ipv4_address: 198.19.201.120
+networks:
+  vdsm:
+    driver: macvlan
+    driver_opts:
+      parent: ens32
+    ipam:
+      config:
+        - subnet: "198.19.201.0/24"
+          gateway: "198.19.201.254"
+          aux_addresses:
+            host1: 198.19.201.121
