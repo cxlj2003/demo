@@ -2,8 +2,12 @@ version: '3.9'
 services:
     openwrt:
         command: "/sbin/init"
-        image: registry.cn-shanghai.aliyuncs.com/suling/openwrt:x86_64
-        privileged: true
+        #image: registry.cn-shanghai.aliyuncs.com/suling/openwrt:x86_64
+        image: registry.cn-hangzhou.aliyuncs.com/cxlj/kwrt:08.28.2024-x86-64
+        #image: registry.cn-hangzhou.aliyuncs.com/cxlj/immortalwrt:23.05.3-x86-64
+        #privileged: true
+        cap_add:
+          - NET_ADMIN
         networks:
             openwrt: 
               ipv4_address: 198.19.255.250
@@ -18,3 +22,5 @@ networks:
       config:
         - subnet: "198.19.255.0/24"
           gateway: "198.19.255.254"
+          aux_addresses:
+            host1: 198.19.255.250
