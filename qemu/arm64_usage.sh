@@ -20,13 +20,13 @@ qemu-system-aarch64 \
 
  #在X86上运行
  qemu-system-aarch64 \
- -m 2048 \
- -cpu max \
+ -m 4096 \
+ -cpu cortex-a57 -smp 4 \
  -M virt \
  -nographic \
  -drive if=pflash,format=raw,file=efi.img,readonly=on \
  -drive if=pflash,format=raw,file=varstore.img \
- -drive if=none,file=jammy-server-cloudimg-arm64.img,id=hd0 -device virtio-blk-device,drive=hd0 \
+ -drive if=none,file=ubuntu-24.04-server-cloudimg-arm64.img,id=hd0 -device virtio-blk-device,drive=hd0 \
  -netdev bridge,br=br0,id=net0 -device virtio-net-device,netdev=net0
 #install.sh
 qemu-img create system.img 10G
