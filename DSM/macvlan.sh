@@ -18,3 +18,4 @@ network:
           via: 198.19.201.121
 EOF
 chmod 600 /etc/netplan/macvlan-interfaces.yaml
+netplan apply
