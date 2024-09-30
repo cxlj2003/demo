@@ -37,3 +37,28 @@ netplan apply
 ####kwrt 10.0.0.1 密码root  https://github.com/kiddin9/Kwrt https://openwrt.ai/docker%E7%89%88openwrt%E6%97%81%E8%B7%AF%E7%94%B1%E5%AE%89%E8%A3%85%E8%AE%BE%E7%BD%AE%E6%95%99%E7%A8%8B/ 
 ####registry.cn-hangzhou.aliyuncs.com/cxlj/kwrt:08.28.2024-x86-64 
 #ip addr add 198.19.201.252/24 dev br-lan
+apt -y install wget
+DATE=`date  "+%m.%d.%Y"`
+wget https://dl.openwrt.ai/releases/targets/x86/64/kwrt-$DATE-x86-64-generic-rootfs.tar.gz
+docker import kwrt-$DATE-x86-64-generic-rootfs.tar.gz registry.cn-hangzhou.aliyuncs.com/cxlj/kwrt:$DATE-x86-64
+docker push registry.cn-hangzhou.aliyuncs.com/cxlj/kwrt:$DATE-x86-64
+cat << EOF > docker-compose.yaml
+version: '3.9'
+services:
+    openwrt:
+        command: "/sbin/init"
+          #image: registry.cn-shanghai.aliyuncs.com/suling/openwrt:x86_64
+        image: registry.cn-hangzhou.aliyuncs.com/cxlj/kwrt:$DATE-x86-64
+          #image: registry.cn-hangzhou.aliyuncs.com/cxlj/immortalwrt:23.05.3-x86-64
+          #privileged: true
+        cap_add:
+          - NET_ADMIN
+        networks:
+            macvlan-eth0: 
+              ipv4_address: 198.19.201.252
+        container_name: openwrt
+        restart: always
+networks:
+  macvlan-eth0:
+    external: true
+EOF
