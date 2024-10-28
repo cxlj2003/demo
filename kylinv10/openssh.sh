@@ -1,7 +1,7 @@
 #!/bin/bash
 #----------------------------开启服务器telnet登陆---------------------------------------------#
 #----------------------------开启服务器telnet登陆---------------------------------------------#
-url=`cat /etc/yum.repos.d/kylin_aarch64.repo |egrep -v "#"|awk -F "/" '{print $3}'|uniq`;for i in $url;do sed -i "s#$i#172.20.41.67:27020/kylin#g" /etc/yum.repos.d/kylin_aarch64.repo;done
+url=`cat /etc/yum.repos.d/kylin_aarch64.repo |egrep -v "#"|awk -F "/" '{print $3}'|uniq`;for i in $url;do sed -i "s#$i#100.201.3.111/kylin#g" /etc/yum.repos.d/kylin_aarch64.repo;done
 yum clean all && yum makecache
 systemctl disable firewalld --now
 setenforce 0
@@ -64,13 +64,13 @@ systemctl enable xinetd telnet.socket --now
 yum -y install vim gcc gcc-c++ glibc make autoconf openssl openssl-devel pcre-devel pam-devel zlib-devel tcp_wrappers-devel tcp_wrappers libedit-devel perl-IPC-Cmd wget tar lrzsz nano
 #yum -y install gcc pam-devel zlib-devel openssl-devel net-tools
 cd /usr/local/src
-wget 172.20.41.67:27020/soft/zlib-1.3.1.tar.gz
-wget 172.20.41.67:27020/soft/openssl-3.3.1.tar.gz
-wget 172.20.41.67:27020/soft/openssh-9.8p1.tar.gz
+wget 100.201.3.111/soft/zlib-1.3.1.tar.gz
+wget 100.201.3.111/soft/openssl-3.3.1.tar.gz
+wget 100.201.3.111/soft/openssh-9.9p1.tar.gz
 
 tar -zxvf zlib-1.3.1.tar.gz
 tar -zxvf openssl-3.3.1.tar.gz
-tar -zxvf openssh-9.8p1.tar.gz
+tar -zxvf openssh-9.9p1.tar.gz
 
 cd /usr/local/src/zlib-1.3.1
 ./configure --prefix=/usr/local/zlib
@@ -92,7 +92,7 @@ ldconfig
 
 yum -y remove openssh openssh-clients openssh-server 
 rm -rf /etc/ssh/*
-cd /usr/local/src/openssh-9.8p1
+cd /usr/local/src/openssh-9.9p1
 ./configure --prefix=/usr \
 --sysconfdir=/etc/ssh \
 --with-pam \
@@ -104,8 +104,8 @@ make -j 4 && make install
 
 rm -f /etc/init.d/sshd
 alias cp='cp'
-cp -rf /usr/local/src/openssh-9.8p1/contrib/redhat/sshd.init /etc/init.d/sshd
-cp -rf /usr/local/src/openssh-9.8p1/contrib/redhat/sshd.pam /etc/pam.d/sshd
+cp -rf /usr/local/src/openssh-9.9p1/contrib/redhat/sshd.init /etc/init.d/sshd
+cp -rf /usr/local/src/openssh-9.9p1/contrib/redhat/sshd.pam /etc/pam.d/sshd
 alias cp='cp -i'
 chkconfig --add sshd
 chkconfig sshd on
