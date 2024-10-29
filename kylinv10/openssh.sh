@@ -65,18 +65,18 @@ yum -y install vim gcc gcc-c++ glibc make autoconf openssl openssl-devel pcre-de
 #yum -y install gcc pam-devel zlib-devel openssl-devel net-tools
 cd /usr/local/src
 wget 100.201.3.111/soft/zlib-1.3.1.tar.gz
-wget 100.201.3.111/soft/openssl-3.3.1.tar.gz
+wget 100.201.3.111/soft/openssl-3.3.2.tar.gz
 wget 100.201.3.111/soft/openssh-9.9p1.tar.gz
 
 tar -zxvf zlib-1.3.1.tar.gz
-tar -zxvf openssl-3.3.1.tar.gz
+tar -zxvf openssl-3.3.2.tar.gz
 tar -zxvf openssh-9.9p1.tar.gz
 
 cd /usr/local/src/zlib-1.3.1
 ./configure --prefix=/usr/local/zlib
 make -j 4 && make test && make install
 
-cd /usr/local/src/openssl-3.3.1
+cd /usr/local/src/openssl-3.3.2
 ./config --prefix=/usr/local/openssl
 make -j 4 && make install
 mv /usr/bin/openssl /usr/bin/oldopenssl
@@ -116,6 +116,7 @@ PermitRootLogin yes
 PasswordAuthentication yes
 EOF
 systemctl restart sshd
+
 rm -rf /usr/local/src/*
 
 #systemctl disable telnet.socket xinetd --now
