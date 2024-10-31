@@ -1,0 +1,11 @@
+## InLinux-23.12-LTS SP1 repo ##
+[everything]
+name = InLinux-23.12-LTS everything
+baseurl = https://repos-inlinux.inspurcloud.cn/InLinux-23.12-LTS-SP1/everything/x86_64/
+gpgcheck = 0
+enabled = 1
+[update]
+name = InLinux-23.12-LTS update
+baseurl = https://repos-inlinux.inspurcloud.cn/InLinux-23.12-LTS-SP1/update/x86_64/
+gpgcheck = 0
+enabled = 1
