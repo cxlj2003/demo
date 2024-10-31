@@ -33,7 +33,10 @@ RUN yum --releasever=23.12LTS_SP1 \
 RUN yum clean all && \
     rm -rf /var/cache/yum && \
     rm -rf /var/log/*
-RUN ln -snf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+RUN  echo export LANG='en_US.UTF-8' >> /etc/profile && \
+     echo export LC_ALL='en_US.UTF-8' >> /etc/profile && \
+     source /etc/profile && \
+     ln -snf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 FROM scratch
 COPY --from=runner / /
