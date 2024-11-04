@@ -1,4 +1,6 @@
 #!/bin/bash
+cat << 'EOF' > /root/init_mirrors.sh
+#!/bin/bash
 set -ex
 init_downloader(){
 local reponame=$1
@@ -10,20 +12,16 @@ for repo in ${repo_list};do
   if [ ! -d ${repo_root}/${repo} ];then
     mkdir -p ${repo_root}/${repo}/Packages/
   fi
-  reposync --urls --repoid ${repo} > ${repo_root}/${repo}/${repo}.txt
-  file=${repo_root}/${repo}/${repo}.txt
-  cat $file | while read line;do
-    echo $line
-    axel -k -c -p -n 4 $line -o ${repo_root}/${repo}/Packages/
-  done
-done
-
-for repo in ${repo_list};do
+  for repo in ${repo_list};do
    reposync --repoid ${repo} -p ${repo_root}
+  done
 done 
 }
+init_downloader kylin &> /dev/null &
+init_downloader inlinux &> /dev/null &
+EOF
 
-cat << EOF > /root/update_mirrors.sh
+cat << 'EOF' > /root/update_mirrors.sh
 #!/bin/bash
 set -ex
 update_downloader(){
@@ -46,5 +44,4 @@ cat << EOF > /var/spool/cron/root
 EOF
 
 set +ex
-
 tail -f /dev/null
