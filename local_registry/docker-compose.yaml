@@ -1,0 +1,16 @@
+version: '3.3'
+services:
+  app:
+    image: registry.cn-hangzhou.aliyuncs.com/cxlj/registry:2.8.3
+    container_name: local_registry
+    hostname: local_registry
+    volumes:
+      - /opt/mirrors:/var/lib/registry
+    privileged: true
+    ports:
+      - 5000:5000
+    environment:
+      - "UID:0"
+      - "GID:0"
+      - "GIDLIST:0"
+    restart: alway
