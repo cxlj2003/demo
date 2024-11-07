@@ -1,0 +1,22 @@
+services:
+  zt1srv:
+    image:  registry.cn-hangzhou.aliyuncs.com/cxlj/zerotier-planet:1.14.2
+    container_name: zt1srv
+    hostname: zt1srv
+    ports:
+      - 9993:9993
+      - 9993:9993/udp
+      - 3443:3443
+      - 3000:3000
+    environment:
+      - IP_ADDR4=[IPV4IP ADDRESS]
+      - IP_ADDR6=
+      - ZT_PORT=9993
+      - API_PORT=3443
+      - FILE_SERVER_PORT=3000
+    volumes:
+      - ./data/zerotier/dist:/app/dist
+      - ./data/zerotier/ztncui:/app/ztncui
+      - ./data/zerotier/one:/var/lib/zerotier-one
+      - ./data/zerotier/config:/app/config
+    restart: unless-stopped
