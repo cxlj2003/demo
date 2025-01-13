@@ -2,14 +2,14 @@ services:
   alist:
     image: ghcr.io/monlor/xiaoya-alist:latest
     volumes:
-      - xiaoya:/data
+      - ./xiaoya:/data
     ports:
       - "5678:5678"
       - "2345:2345"
       - "2346:2346"
     env_file:
       - env
-    restart: unless-stopped
+    restart: always
     networks:
       - default
   metadata:
@@ -17,14 +17,14 @@ services:
     env_file:
       - env
     volumes:
-      - xiaoya:/etc/xiaoya
-      - media:/media/xiaoya
-      - config:/media/config
-      - cache:/media/config/cache
-      - meta:/media/temp
+      - ./xiaoya:/etc/xiaoya
+      - ./media:/media/xiaoya
+      - ./config:/media/config
+      - ./cache:/media/config/cache
+      - ./meta:/media/temp
     depends_on:
       - alist
-    restart: unless-stopped
+    restart: always
     networks:
       - default
   emby:
@@ -35,21 +35,14 @@ services:
       - metadata
       - alist
     volumes:
-      - media:/media
-      - config:/config
-      - cache:/cache
+      - ./media:/media
+      - ./config:/config
+      - ./cache:/cache
     ports:
       - "6908:6908"
-    restart: unless-stopped
+    restart: always
     networks:
       - default
 
 networks:
   default:
-
-volumes:
-  xiaoya:
-  media:
-  config:
-  meta:
-  cache:
