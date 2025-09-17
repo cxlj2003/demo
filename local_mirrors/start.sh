@@ -26,6 +26,7 @@ done
 }
 update_downloader kylin &> /dev/null &
 update_downloader inlinux &> /dev/null &
+set +ex
 EOF
 ##初次运行此脚本
 /usr/bin/bash /root/update_mirrors.sh &> /dev/null &
