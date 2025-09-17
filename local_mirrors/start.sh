@@ -14,13 +14,15 @@ for repo in ${repo_list};do
   if [ ! -d ${repo_root}/${repo} ];then
     mkdir -p ${repo_root}/${repo}/Packages/
   fi
-   reposync --repoid ${repo} -p ${repo_root} --downloadcomps
+   reposync --repoid ${repo} -np ${repo_root} --downloadcomps
    createrepo --groupfile ${repo_root}/${repo}/comps.xml ${repo_root}
 done 
 }
 init_downloader kylin &> /dev/null &
 init_downloader inlinux &> /dev/null &
 EOF
+##初次运行此脚本
+/usr/bin/bash /root/init_mirrors.sh
 ##创建增量更新脚本
 cat << 'EOF' > /root/update_mirrors.sh
 #!/bin/bash
