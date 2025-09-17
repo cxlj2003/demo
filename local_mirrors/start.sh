@@ -23,14 +23,20 @@ for repo in ${repo_list};do
     echo "初次生成元数据" 
     if [[ ! -f ${repo_root}/${repo}/comps.xml ]];then 
       echo "没有找到 ${repo_root}/${repo}/comps.xml 文件，跳过生成组元数据"
-      createrepo --repo ${repo}  ${repo_root}
+      createrepo --repo ${repo}  ${repo_root}/${repo}
     else
       echo "找到 ${repo_root}/${repo}/comps.xml 文件，生成组元数据"
-      createrepo --repo ${repo} --groupfile ${repo_root}/${repo}/comps.xml ${repo_root}
+      createrepo --repo ${repo} --groupfile ${repo_root}/${repo}/comps.xml ${repo_root}/${repo}
     fi
   else
-    echo "增量更新元数据"
-    createrepo --repo ${repo} --update  ${repo_root}/${repo}
+    echo "增量更新元数据"    
+    if [[ ! -f ${repo_root}/${repo}/comps.xml ]];then 
+      echo "没有找到 ${repo_root}/${repo}/comps.xml 文件，跳过生成组元数据"
+      createrepo --repo ${repo} --update  ${repo_root}/${repo}
+    else
+      echo "找到 ${repo_root}/${repo}/comps.xml 文件，生成组元数据"
+      createrepo --repo ${repo} --groupfile ${repo_root}/${repo}/comps.xml --update  ${repo_root}/${repo}
+    fi
   fi
 done 
 }
