@@ -2,6 +2,7 @@
 set -ex
 
 ##创建增量更新脚本
+
 cat << 'EOF' > /root/update_mirrors.sh
 #!/bin/bash
 set -ex
@@ -28,7 +29,9 @@ update_downloader kylin &> /dev/null &
 update_downloader inlinux &> /dev/null &
 set +ex
 EOF
+
 ##初次运行此脚本
+
 /usr/bin/bash /root/update_mirrors.sh &> /dev/null &
 
 
