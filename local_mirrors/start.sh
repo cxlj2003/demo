@@ -47,7 +47,7 @@ done
 }
 
 update_downloader kylin &> /dev/null &
-#update_downloader inlinux &> /dev/null &
+update_downloader inlinux &> /dev/null &
 set +ex
 EOF
 
