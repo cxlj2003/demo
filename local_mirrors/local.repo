@@ -41,12 +41,12 @@ enabled = 1
 
 ###InLinux 23.12 x86_64  repo###
 
-[inlinux_23.12_x86_64_everything]
+[inlinux_23.12_x86_64-everything]
 name = InLinux-23.12-LTS everything
 baseurl = https://repos-inlinux.inspurcloud.cn/InLinux-23.12-LTS/everything/x86_64/
 gpgcheck = 0
 enabled = 1
-[inlinux_23.12_x86_64_update]
+[inlinux_23.12_x86_64-update]
 name = InLinux-23.12-LTS update
 baseurl = https://repos-inlinux.inspurcloud.cn/InLinux-23.12-LTS/update/x86_64/
 gpgcheck = 0
@@ -54,12 +54,12 @@ enabled = 1
 
 ###InLinux 23.12 SP1 x86_64  repo###
 
-[inlinux_23.12_SP1_x86_64_everything]
+[inlinux_23.12_SP1_x86_64-everything]
 name = InLinux-23.12-LTS everything
 baseurl = https://repos-inlinux.inspurcloud.cn/InLinux-23.12-LTS-SP1/everything/x86_64/
 gpgcheck = 0
 enabled = 1
-[inlinux_23.12_SP1_x86_64_update]
+[inlinux_23.12_SP1_x86_64-update]
 name = InLinux-23.12-LTS update
 baseurl = https://repos-inlinux.inspurcloud.cn/InLinux-23.12-LTS-SP1/update/x86_64/
 gpgcheck = 0
@@ -108,12 +108,12 @@ enabled = 1
 
 ###InLinux 23.12  aarch64  repo###
 
-[inlinux_23.12_aarch64_everything]
+[inlinux_23.12_aarch64-everything]
 name = InLinux-23.12-LTS everything
 baseurl = https://repos-inlinux.inspurcloud.cn/InLinux-23.12-LTS/everything/aarch64/
 gpgcheck = 0
 enabled = 1
-[inlinux_23.12_aarch64_update]
+[inlinux_23.12_aarch64-update]
 name = InLinux-23.12-LTS update
 baseurl = https://repos-inlinux.inspurcloud.cn/InLinux-23.12-LTS/update/aarch64/
 gpgcheck = 0
@@ -121,12 +121,12 @@ enabled = 1
 
 ###InLinux 23.12 SP1 aarch64  repo###
 
-[inlinux_23.12_SP1_aarch64_everything]
+[inlinux_23.12_SP1_aarch64-everything]
 name = InLinux-23.12-LTS everything
 baseurl = https://repos-inlinux.inspurcloud.cn/InLinux-23.12-LTS-SP1/everything/aarch64/
 gpgcheck = 0
 enabled = 1
-[inlinux_23.12_SP1_aarch64_update]
+[inlinux_23.12_SP1_aarch64-update]
 name = InLinux-23.12-LTS update
 baseurl = https://repos-inlinux.inspurcloud.cn/InLinux-23.12-LTS-SP1/update/aarch64/
 gpgcheck = 0
