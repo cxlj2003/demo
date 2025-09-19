@@ -48,6 +48,7 @@ done
 
 update_downloader kylin &> /dev/null &
 update_downloader inlinux &> /dev/null &
+update_downloader UOSV20 &> /dev/null &
 set +ex
 EOF
 
