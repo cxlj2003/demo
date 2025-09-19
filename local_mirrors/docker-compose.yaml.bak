@@ -1,6 +1,6 @@
 services:
   app:
-    image: local_mirrors:v1.7
+    image: registry.cn-hangzhou.aliyuncs.com/cxlj/openeuler:24.03-lts
     container_name: local_mirrors
     hostname: local_mirrors
     volumes:
