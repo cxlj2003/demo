@@ -65,61 +65,61 @@ baseurl = https://repos-inlinux.inspurcloud.cn/InLinux-23.12-LTS-SP1/update/x86_
 gpgcheck = 0
 enabled = 1
 
-###UOSV20 1050 x86_64 ###
+###uos_v20 1050 x86_64 ###
 
-[UOSV20_1050_x86_64-os]
+[uos_v20_1050_x86_64-os]
 name=UnionTechOS-Server-20-1050
 baseurl=https://euler-packages.chinauos.com/server-euler/ufu/fuyu/1050/OS/x86_64/
 enabled=1
 gpgcheck=0
 
-[UOSV20_1050_x86_64-everything]
+[uos_v20_1050_x86_64-everything]
 name=UnionTechOS-Server-20-1050-everything
 baseurl=https://euler-packages.chinauos.com/server-euler/ufu/fuyu/1050/everything/x86_64/
 enabled=1
 gpgcheck=0
 
-[UOSV20_1050_x86_64-update]
+[uos_v20_1050_x86_64-update]
 name=UnionTechOS-Server-20-1050-update
 baseurl=https://euler-packages.chinauos.com/server-euler/ufu/fuyu/1050/update/x86_64/
 enabled=1
 gpgcheck=0
 
-###UOSV20 1060 x86_64 ###
+###uos_v20 1060 x86_64 ###
 
-[UOSV20_1060_x86_64-os]
+[uos_v20_1060_x86_64-os]
 name=UnionTechOS-Server-20-1060
 baseurl=https://euler-packages.chinauos.com/server-euler/ufu/fuyu/1060/OS/x86_64/
 enabled=1
 gpgcheck=0
 
-[UOSV20_1060_x86_64-everything]
+[uos_v20_1060_x86_64-everything]
 name=UnionTechOS-Server-20-1060-everything
 baseurl=https://euler-packages.chinauos.com/server-euler/ufu/fuyu/1060/everything/x86_64/
 enabled=1
 gpgcheck=0
 
-[UOSV20_1060_x86_64-update]
+[uos_v20_1060_x86_64-update]
 name=UnionTechOS-Server-20-1060-update
 baseurl=https://euler-packages.chinauos.com/server-euler/ufu/fuyu/1060/update/x86_64/
 enabled=1
 gpgcheck=0
 
-###UOSV20 1070 x86_64 ###
+###uos_v20 1070 x86_64 ###
 
-[UOSV20_1070_x86_64-os]
+[uos_v20_1070_x86_64-os]
 name=UnionTechOS-Server-20-1070
 baseurl=https://euler-packages.chinauos.com/server-euler/ufu/fuyu/1070/OS/x86_64/
 enabled=1
 gpgcheck=0
 
-[UOSV20_1070_x86_64-everything]
+[uos_v20_1070_x86_64-everything]
 name=UnionTechOS-Server-20-1070-everything
 baseurl=https://euler-packages.chinauos.com/server-euler/ufu/fuyu/1070/everything/x86_64/
 enabled=1
 gpgcheck=0
 
-[UOSV20_1070_x86_64-update]
+[uos_v20_1070_x86_64-update]
 name=UnionTechOS-Server-20-1070-update
 baseurl=https://euler-packages.chinauos.com/server-euler/ufu/fuyu/1070/update/x86_64/
 enabled=1
@@ -192,61 +192,61 @@ baseurl = https://repos-inlinux.inspurcloud.cn/InLinux-23.12-LTS-SP1/update/aarc
 gpgcheck = 0
 enabled = 1
 
-###UOSV20 1050 aarch64 ###
+###uos_v20 1050 aarch64 ###
 
-[UOSV20_1050_aarch64-os]
+[uos_v20_1050_aarch64-os]
 name=UnionTechOS-Server-20-1050
 baseurl=https://euler-packages.chinauos.com/server-euler/ufu/fuyu/1050/OS/aarch64/
 enabled=1
 gpgcheck=0
 
-[UOSV20_1050_aarch64-everything]
+[uos_v20_1050_aarch64-everything]
 name=UnionTechOS-Server-20-1050-everything
 baseurl=https://euler-packages.chinauos.com/server-euler/ufu/fuyu/1050/everything/aarch64/
 enabled=1
 gpgcheck=0
 
-[UOSV20_1050_aarch64-update]
+[uos_v20_1050_aarch64-update]
 name=UnionTechOS-Server-20-1050-update
 baseurl=https://euler-packages.chinauos.com/server-euler/ufu/fuyu/1050/update/aarch64/
 enabled=1
 gpgcheck=0
 
-###UOSV20 1060 aarch64 ###
+###uos_v20 1060 aarch64 ###
 
-[UOSV20_1060_aarch64-os]
+[uos_v20_1060_aarch64-os]
 name=UnionTechOS-Server-20-1060
 baseurl=https://euler-packages.chinauos.com/server-euler/ufu/fuyu/1060/OS/aarch64/
 enabled=1
 gpgcheck=0
 
-[UOSV20_1060_aarch64-everything]
+[uos_v20_1060_aarch64-everything]
 name=UnionTechOS-Server-20-1060-everything
 baseurl=https://euler-packages.chinauos.com/server-euler/ufu/fuyu/1060/everything/aarch64/
 enabled=1
 gpgcheck=0
 
-[UOSV20_1060_aarch64-update]
+[uos_v20_1060_aarch64-update]
 name=UnionTechOS-Server-20-1060-update
 baseurl=https://euler-packages.chinauos.com/server-euler/ufu/fuyu/1060/update/aarch64/
 enabled=1
 gpgcheck=0
 
-###UOSV20 1070 aarch64 ###
+###uos_v20 1070 aarch64 ###
 
-[UOSV20_1070_aarch64-os]
+[uos_v20_1070_aarch64-os]
 name=UnionTechOS-Server-20-1070
 baseurl=https://euler-packages.chinauos.com/server-euler/ufu/fuyu/1070/OS/aarch64/
 enabled=1
 gpgcheck=0
 
-[UOSV20_1070_aarch64-everything]
+[uos_v20_1070_aarch64-everything]
 name=UnionTechOS-Server-20-1070-everything
 baseurl=https://euler-packages.chinauos.com/server-euler/ufu/fuyu/1070/everything/aarch64/
 enabled=1
 gpgcheck=0
 
-[UOSV20_1070_aarch64-update]
+[uos_v20_1070_aarch64-update]
 name=UnionTechOS-Server-20-1070-update
 baseurl=https://euler-packages.chinauos.com/server-euler/ufu/fuyu/1070/update/aarch64/
 enabled=1
