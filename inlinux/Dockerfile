@@ -8,7 +8,7 @@ ARG SP_VERSION
 
 RUN echo "I'm building inlinux-23.12-sp${SP_VERSION} for arch ${TARGETARCH}"
 RUN rm -rf /target && mkdir -p /target/etc/yum.repos.d && mkdir -p /etc/pki/rpm-gpg
-COPY inlinux-23.12-lts-sp1.repo /target/etc/yum.repos.d/inlinux.repo
+COPY inlinux-23.12-lts-sp${SP_VERSION}.repo /target/etc/yum.repos.d/inlinux.repo
 COPY RPM-GPG-KEY-InLinux /target/etc/pki/rpm-gpg/RPM-GPG-KEY-InLinux
 COPY RPM-GPG-KEY-InLinux /etc/pki/rpm-gpg/RPM-GPG-KEY-InLinux
 
@@ -18,16 +18,16 @@ RUN case ${TARGETARCH} in \
          "amd64")  ARCHNAME=x86_64  ;; \
          "arm64")  ARCHNAME=aarch64  ;; \
     esac && \
-    mv /target/etc/yum.repos.d/inlinux.repo /target/etc/yum.repos.d/inlinux_${ARCHNAME}.repo
+    mv /target/etc/yum.repos.d/inlinux.repo /target/etc/yum.repos.d/InLinux.repo
 
 RUN yum --installroot=/target \
-    --releasever=23.12LTS_SP1 \
+    --releasever=23.12LTS_SP${SP_VERSION} \
     --setopt=tsflags=nodocs \
     install -y InLinux-release coreutils rpm yum bash procps tar
 
 FROM scratch as runner
 COPY --from=bootstrap /target /
-RUN yum --releasever=23.12LTS_SP1 \
+RUN yum --releasever=23.12LTS_SP${SP_VERSION} \
     --setopt=tsflags=nodocs \
     install -y InLinux-release coreutils rpm yum bash procps tar
 RUN yum clean all && \
