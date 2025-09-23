@@ -1,6 +1,6 @@
 # https://docs.docker.com/engine/reference/builder/#understand-how-arg-and-from-interact
 # https://docs.docker.com/engine/reference/builder/#automatic-platform-args-in-the-global-scope
-FROM registry.cn-hangzhou.aliyuncs.com/cxlj/openeuler:22.03-lts as bootstrap
+FROM registry.cn-hangzhou.aliyuncs.com/cxlj/openeuler:22.03-lts AS bootstrap
 
 ARG TARGETARCH
 
@@ -25,7 +25,7 @@ RUN yum --installroot=/target \
     --setopt=tsflags=nodocs \
     install -y InLinux-release coreutils rpm yum bash procps tar
 
-FROM scratch as runner
+FROM scratch AS runner
 COPY --from=bootstrap /target /
 RUN yum --releasever=23.12LTS_SP${SP_VERSION} \
     --setopt=tsflags=nodocs \
@@ -40,4 +40,4 @@ RUN  echo export LANG='en_US.UTF-8' >> /etc/profile && \
 
 FROM scratch
 COPY --from=runner / /
-CMD /bin/bash
+CMD ["/bin/bash"]
